@@ -79,21 +79,20 @@ body {
 
 .header {
   margin-top: 20px;
-  margin-bottom: 37px;
+  margin-bottom: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .header img {
-  width: 26px;
-  height: 30px;
-  margin-right: 5px;
+  width: 52px;
+  margin-right: 10px;
 }
 
 .header .title {
-  font-size: 20px;
-  line-height: auto;
+  font-size: 36px;
+  line-height: 44px;
   font-family: "Righteous", sans-serif;
   color: var(--color-text);
 }
@@ -105,12 +104,12 @@ body {
 }
 
 .card {
-  background-color: #ffffd5;
-  padding: 9px 8px;
+  background-color: #fff;
+  padding: 23px 15px;
   border-radius: 5px;
   max-width: 450px;
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
   transition: max-height 0.3s ease-in;
   position: relative;
 
@@ -128,28 +127,28 @@ body {
 }
 
 .card .action-btn {
-  padding: 10px;
   cursor: pointer;
 }
 
 .card .action-btn img {
-  height: 22px;
+  height: 30px;
   color: #333;
-  cursor: pointer;
 }
 
 .card.show {
-  margin-bottom: 13px;
+  background-color: #ffffd4;
+  padding-bottom: 0px;
   min-height: 80px;
   align-items: flex-start;
 }
 
 .card .front img {
-  height: 13px;
+  height: 20px;
+  width: 30px;
 
   position: absolute;
-  bottom: 7px;
-  right: 10px;
+  bottom: 6px;
+  right: 15px;
 }
 
 .card .front,
@@ -157,10 +156,16 @@ body {
   width: 100%;
 }
 
-.card .front p,
-.card .back p {
-  margin: 13px 0;
+.card.show .front p {
+  font-size: 18px;
   font-weight: 400;
+  margin-bottom: 91px;
+}
+
+.card.show .back p {
+  font-weight: 400;
+  margin-top: -6px;
+  margin-bottom: 26px;
 }
 
 .card .back .options {
@@ -182,8 +187,11 @@ body {
 
 .back .options .btn {
   color: white;
+  font-size: 12px;
   width: 30%;
+  min-width: 90px;
   border: none;
-  height: initial;
-  padding: 11px 10px;
+  min-height: initial;
+  padding: 6px 22px;
+  margin-bottom: 6px;
 }

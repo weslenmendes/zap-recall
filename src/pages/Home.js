@@ -8,22 +8,27 @@ const Home = () => {
         <Header />
         <section className="cards">
           <Card
+            id="1"
             question="O que é JSX?"
             response="É um sintaxe que junta o JavaScript com XML."
           />
           <Card
+            id="2"
             question="O que é JSX?"
             response="É um sintaxe que junta o JavaScript com XML."
           />
           <Card
+            id="3"
             question="O que é JSX?"
             response="É um sintaxe que junta o JavaScript com XML."
           />
           <Card
+            id="4"
             question="Três pratos de trigo para tres tigres trixtesldkoakokowqkqwoko"
             response="É um sintaxe que junta o JavaScript com XML."
           />
           <Card
+            id="5"
             question="O que é JSX?"
             response="É um sintaxe que junta o JavaScript com XML."
           />

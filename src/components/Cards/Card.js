@@ -2,13 +2,13 @@ import { useState } from "react";
 
 const initialState = { start: false, showResponse: false };
 
-const Card = ({ question, response }) => {
+const Card = ({ id, question, response }) => {
   const [status, setStatus] = useState(initialState);
 
   if (!status.start) {
     return (
       <article className="card">
-        <p>Pergunta 1</p>
+        <p>Pergunta {id}</p>
         <div
           className="action-btn"
           onClick={() => setStatus({ ...status, start: true })}
