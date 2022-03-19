@@ -1,41 +1,67 @@
+import { useState } from "react";
+
 import { Header } from "../components/Header";
 import { Card } from "../components/Cards/Card";
 import { Footer } from "../components/Footer";
 
-const Home = () => {
+const deck1 = [
+  {
+    id: 1,
+    question: "O que é JSX?",
+    response: "É um sintaxe que junta o JavaScript com XML.",
+  },
+  {
+    id: 2,
+    question: "O que é JSX?",
+    response: "É um sintaxe que junta o JavaScript com XML.",
+  },
+  {
+    id: 3,
+    question: "O que é JSX?",
+    response: "É um sintaxe que junta o JavaScript com XML.",
+  },
+  {
+    id: 4,
+    question: "O que é JSX?",
+    response: "É um sintaxe que junta o JavaScript com XML.",
+  },
+  {
+    id: 5,
+    question: "O que é JSX?",
+    response: "É um sintaxe que junta o JavaScript com XML.",
+  },
+];
+
+const Home = ({ changeScreen }) => {
+  const [icons, setIcons] = useState([]);
+
+  const addIcon = (icon) => {
+    setIcons([...icons, icon]);
+  };
+
   return (
     <>
-      <section className="home">
+      <section
+        className={icons.length === deck1.length ? "home finished" : "home"}
+      >
         <Header />
         <section className="cards">
-          <Card
-            id="1"
-            question="O que é JSX?"
-            response="É um sintaxe que junta o JavaScript com XML."
-          />
-          <Card
-            id="2"
-            question="O que é JSX?"
-            response="É um sintaxe que junta o JavaScript com XML."
-          />
-          <Card
-            id="3"
-            question="O que é JSX?"
-            response="É um sintaxe que junta o JavaScript com XML."
-          />
-          <Card
-            id="4"
-            question="Três pratos de trigo para tres tigres trixtesldkoakokowqkqwoko"
-            response="É um sintaxe que junta o JavaScript com XML."
-          />
-          <Card
-            id="5"
-            question="O que é JSX?"
-            response="É um sintaxe que junta o JavaScript com XML."
-          />
+          {deck1.map(({ id, question, response }) => (
+            <Card
+              key={id}
+              id={id}
+              question={question}
+              response={response}
+              changeIcons={addIcon}
+            />
+          ))}
         </section>
       </section>
-      <Footer />
+      <Footer
+        icons={icons}
+        cardsMade={icons.length}
+        totalCards={deck1.length}
+      />
     </>
   );
 };
