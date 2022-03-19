@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import "./css/reset.css";
-import "./css/style.css";
+import "./styles/reset.css";
+import "./styles/global.css";
 
 import { Welcome } from "./pages/Welcome";
 import { Home } from "./pages/Home";
