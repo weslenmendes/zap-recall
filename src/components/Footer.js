@@ -1,39 +1,42 @@
-const Footer = ({ icons, cardsMade = 0, totalCards = 4 }) => {
-  if (cardsMade === totalCards) {
-    const isForgot = icons.includes("assets/close-circle.svg");
+import React from "react";
 
+import PartyEmoji from "../assets/party.png";
+import SadEmoji from "../assets/sad.png";
+
+const Footer = ({ icons, cardsMade = 0, totalCards = 4, restart, score }) => {
+  if (cardsMade === totalCards) {
     const content1 = (
-      <>
+      <React.Fragment>
         <div>
-          <img src="assets/party.png" alt="" />
+          <img src={PartyEmoji} alt="" />
           <p className="title">Parabéns</p>
         </div>
         <p className="msg">Você não esqueceu de nenhum flashcard!</p>
-      </>
+      </React.Fragment>
     );
 
     const content2 = (
-      <>
+      <React.Fragment>
         <div>
-          <img src="assets/sad.png" alt="" />
+          <img src={SadEmoji} alt="" />
           <p className="title">Putz...</p>
         </div>
         <p className="msg">
           Ainda faltam alguns... <br />
           Mas não desanime!
         </p>
-      </>
+      </React.Fragment>
     );
 
     return (
       <footer className="finished">
-        <div className="result">{isForgot ? content2 : content1}</div>
+        <div className="result">{score.forgot > 0 ? content2 : content1}</div>
         <p>
           {cardsMade}/{totalCards} CONCLUÍDOS{" "}
         </p>
         <div>
           {icons.map((src, index) => (
-            <img key={`${src}${index}`} src={src} alt="" />
+            <img key={index} src={src} alt="" />
           ))}
         </div>
       </footer>
@@ -46,8 +49,8 @@ const Footer = ({ icons, cardsMade = 0, totalCards = 4 }) => {
         {cardsMade}/{totalCards} CONCLUÍDOS{" "}
       </p>
       <div>
-        {icons.map((src) => (
-          <img key={src} src={src} alt="" />
+        {icons.map((src, index) => (
+          <img key={index} src={src} alt="" />
         ))}
       </div>
     </footer>

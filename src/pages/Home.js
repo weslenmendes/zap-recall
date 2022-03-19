@@ -1,68 +1,58 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { Header } from "../components/Header";
-import { Card } from "../components/Cards/Card";
+import { Cards } from "../components/Cards";
 import { Footer } from "../components/Footer";
 
-const deck1 = [
-  {
-    id: 1,
-    question: "O que é JSX?",
-    response: "É um sintaxe que junta o JavaScript com XML.",
-  },
-  {
-    id: 2,
-    question: "O que é JSX?",
-    response: "É um sintaxe que junta o JavaScript com XML.",
-  },
-  {
-    id: 3,
-    question: "O que é JSX?",
-    response: "É um sintaxe que junta o JavaScript com XML.",
-  },
-  {
-    id: 4,
-    question: "O que é JSX?",
-    response: "É um sintaxe que junta o JavaScript com XML.",
-  },
-  {
-    id: 5,
-    question: "O que é JSX?",
-    response: "É um sintaxe que junta o JavaScript com XML.",
-  },
-];
+import { shuffleDeck } from "../utils";
 
-const Home = ({ changeScreen }) => {
+const Home = ({ changeScreen, deck }) => {
   const [icons, setIcons] = useState([]);
+  const [score, setScore] = useState({
+    forgot: 0,
+    almostForgot: 0,
+    remembered: 0,
+  });
+  const sectionClass = icons.length === deck.length ? "home finished" : "home";
 
   const addIcon = (icon) => {
     setIcons([...icons, icon]);
   };
 
+  if (icons.length === 0) {
+    shuffleDeck(deck);
+  }
+
+  const changeScore = (color) => {
+    if (color === "red") {
+      const newForgot = score.forgot + 1;
+      const newState = { ...score, forgot: newForgot };
+      setScore(newState);
+    } else if (color === "yello") {
+      const newAlmostForgot = score.almostForgot + 1;
+      const newState = { ...score, almostForgot: newAlmostForgot };
+      setScore(newState);
+    } else {
+      const newRemembered = score.remembered + 1;
+      const newState = { ...score, remembered: newRemembered };
+      setScore(newState);
+    }
+  };
+
   return (
-    <>
-      <section
-        className={icons.length === deck1.length ? "home finished" : "home"}
-      >
+    <React.Fragment>
+      <section className={sectionClass}>
         <Header />
-        <section className="cards">
-          {deck1.map(({ id, question, response }) => (
-            <Card
-              key={id}
-              id={id}
-              question={question}
-              response={response}
-              changeIcons={addIcon}
-            />
-          ))}
-        </section>
+        <Cards deck={deck} changeIcons={addIcon} changeScore={changeScore} />
       </section>
       <Footer
         icons={icons}
         cardsMade={icons.length}
-        totalCards={deck1.length}
+        totalCards={deck.length}
+        score={score}
+        restart={changeScreen}
       />
-    </>
+    </React.Fragment>
   );
 };
 

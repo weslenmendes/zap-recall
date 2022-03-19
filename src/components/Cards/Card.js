@@ -1,58 +1,72 @@
 import { useState } from "react";
 
-const initialState = { start: false, showResponse: false };
+import { Options } from "../Options";
 
-const Card = ({ id, question, response, changeIcons }) => {
-  const [status, setStatus] = useState(initialState);
-  const [responded, setResponded] = useState({
-    titleClass: "",
-    imageSrc: "assets/play-outline.svg",
-  });
+import PlayIcon from "../../assets/play-outline.svg";
+import CloseIcon from "../../assets/close-circle.svg";
+import HelpIcon from "../../assets/help-circle.svg";
+import CheckIcon from "../../assets/checkmark-circle.svg";
+import RotateIcon from "../../assets/rotate.svg";
+
+const statusInitialState = { start: false, showResponse: false };
+const respondedInitialState = {
+  titleClass: "",
+  imageSrc: PlayIcon,
+};
+
+const Card = ({ id, question, response, changeIcons, changeScore }) => {
+  const [status, setStatus] = useState(statusInitialState);
+  const [responded, setResponded] = useState(respondedInitialState);
 
   const handleResponse = (buttonColor) => {
-    setStatus({ ...status, start: false });
+    const newStateOfStatus = { ...status, start: false };
+    setStatus(newStateOfStatus);
+
     if (buttonColor === "red") {
-      const newState = {
+      const newStateOfResponded = {
         titleClass: "no-remember",
-        imageSrc: "assets/close-circle.svg",
+        imageSrc: CloseIcon,
       };
-      setResponded(newState);
-      changeIcons(newState.imageSrc);
+      setResponded(newStateOfResponded);
+      changeIcons(newStateOfResponded.imageSrc);
     } else if (buttonColor === "yellow") {
-      const newState = {
+      const newStateOfResponded = {
         titleClass: "almost-remember",
-        imageSrc: "assets/help-circle.svg",
+        imageSrc: HelpIcon,
       };
-      setResponded(newState);
-      changeIcons(newState.imageSrc);
+      setResponded(newStateOfResponded);
+      changeIcons(newStateOfResponded.imageSrc);
     } else {
-      const newState = {
+      const newStateOfResponded = {
         titleClass: "remember",
-        imageSrc: "assets/checkmark-circle.svg",
+        imageSrc: CheckIcon,
       };
-      setResponded(newState);
-      changeIcons(newState.imageSrc);
+      setResponded(newStateOfResponded);
+      changeIcons(newStateOfResponded.imageSrc);
     }
   };
 
   const changeStatus = () => {
-    setStatus({ ...status, start: true });
+    const newState = { ...status, start: true };
+    setStatus(newState);
   };
 
   if (!status.start) {
     const cardClass = status.showResponse ? "card responded" : "card";
 
+    const { titleClass, imageSrc } = responded;
+
     return (
       <article className={cardClass}>
-        <p className={responded.titleClass}>Pergunta {id}</p>
+        <p className={titleClass}>Pergunta {id}</p>
 
         {status.showResponse ? (
           <div className="action-btn">
-            <img src={responded.imageSrc} alt="" />
+            <img src={imageSrc} alt="" />
           </div>
         ) : (
           <div className="action-btn" onClick={changeStatus}>
-            <img src={responded.imageSrc} alt="" />
+            <img src={imageSrc} alt="" />
           </div>
         )}
       </article>
@@ -65,29 +79,13 @@ const Card = ({ id, question, response, changeIcons }) => {
         <section className="front">
           <p>{question}</p>
           <div onClick={() => setStatus({ ...status, showResponse: true })}>
-            <img src="assets/rotate.svg" alt="" />
+            <img src={RotateIcon} alt="" />
           </div>
         </section>
       ) : (
         <section className="back">
           <p>{response}</p>
-          <div className="options">
-            <button className="btn red" onClick={() => handleResponse("red")}>
-              Não lembrei
-            </button>
-            <button
-              className="btn yellow"
-              onClick={() => handleResponse("yellow")}
-            >
-              Quase não lembrei
-            </button>
-            <button
-              className="btn green"
-              onClick={() => handleResponse("green")}
-            >
-              Zap!
-            </button>
-          </div>
+          <Options handleResponse={handleResponse} changeScore={changeScore} />
         </section>
       )}
     </article>
