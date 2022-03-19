@@ -1,34 +1,39 @@
 import React, { useState } from "react";
 
-import { Header } from "../components/Header";
-import { Cards } from "../components/Cards";
-import { Footer } from "../components/Footer";
+import "./style.css";
 
-import { shuffleDeck } from "../utils";
+import { Header } from "./../../components/Header";
+import { Cards } from "./../../components/Cards";
+import { Footer } from "./../../components/Footer";
+
+import { shuffleDeck } from "../../utils";
+
+const initialState = {
+  forgot: 0,
+  almostForgot: 0,
+  remembered: 0,
+};
 
 const Home = ({ changeScreen, deck }) => {
   const [icons, setIcons] = useState([]);
-  const [score, setScore] = useState({
-    forgot: 0,
-    almostForgot: 0,
-    remembered: 0,
-  });
+  const [score, setScore] = useState(initialState);
+
+  if (icons.length === 0) {
+    shuffleDeck(deck);
+  }
+
   const sectionClass = icons.length === deck.length ? "home finished" : "home";
 
   const addIcon = (icon) => {
     setIcons([...icons, icon]);
   };
 
-  if (icons.length === 0) {
-    shuffleDeck(deck);
-  }
-
   const changeScore = (color) => {
     if (color === "red") {
       const newForgot = score.forgot + 1;
       const newState = { ...score, forgot: newForgot };
       setScore(newState);
-    } else if (color === "yello") {
+    } else if (color === "yellow") {
       const newAlmostForgot = score.almostForgot + 1;
       const newState = { ...score, almostForgot: newAlmostForgot };
       setScore(newState);

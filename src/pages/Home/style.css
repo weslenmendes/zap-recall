@@ -1,0 +1,30 @@
+.home {
+  width: 100%;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  padding: 0 38px;
+}
+
+.home.finished {
+  height: calc(100vh - 163px);
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header img {
+  width: 52px;
+  margin-right: 10px;
+}
+
+.header .title {
+  font-size: 36px;
+  line-height: 44px;
+  font-family: "Righteous", sans-serif;
+  color: #fff;
+}
