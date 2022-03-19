@@ -1,5 +1,6 @@
 import { Header } from "../components/Header";
 import { Card } from "../components/Cards/Card";
+import { Footer } from "../components/Footer";
 
 const Home = () => {
   return (
@@ -34,6 +35,7 @@ const Home = () => {
           />
         </section>
       </section>
+      <Footer />
     </>
   );
 };
