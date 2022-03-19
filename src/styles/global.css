@@ -40,40 +40,6 @@ body {
   justify-content: center;
 }
 
-/* Welcome Page */
-
-.welcome-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  margin-top: 148px;
-}
-
-.welcome-page header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-}
-
-.welcome-page header img {
-  max-width: 136px;
-  width: 100%;
-  margin-bottom: 13px;
-}
-
-.welcome-page .title {
-  font-size: 36px;
-  line-height: 41px;
-  font-weight: 400;
-  font-family: "Righteous", sans-serif;
-  color: #fff;
-  margin-bottom: 30px;
-}
-
 /* Footer */
 
 footer {

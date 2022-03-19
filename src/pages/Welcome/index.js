@@ -1,6 +1,8 @@
-import { Button } from "../components/Button";
+import "./style.css";
 
-import Logo from "../assets/images/logo.png";
+import { Button } from "../../components/Button";
+
+import Logo from "../../assets/images/logo.png";
 
 const Welcome = ({ changeScreen }) => {
   return (
@@ -10,9 +12,7 @@ const Welcome = ({ changeScreen }) => {
         <h1 className="title">ZapRecall</h1>
         <Button
           content="Iniciar Recall!"
-          onClick={() => {
-            changeScreen("home");
-          }}
+          onClick={() => changeScreen("home")}
         />
       </header>
     </section>
