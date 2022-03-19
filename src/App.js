@@ -1,8 +1,8 @@
-// import { Welcome } from "./pages/Welcome";
-import { Home } from "./pages/Home";
+import { Welcome } from "./pages/Welcome";
+// import { Home } from "./pages/Home";
 
 function App() {
-  return <Home />;
+  return <Welcome />;
 }
 
 export default App;

@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 90%;
 }
 
@@ -38,24 +38,29 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 73px;
   width: 90%;
 }
 
 .welcome-page header img {
-  width: 55px;
+  max-width: 136px;
+  width: 100%;
+  margin-bottom: 13px;
 }
 
 .welcome-page .title {
-  font-size: 25px;
-  line-height: 31px;
+  font-size: 36px;
+  line-height: 41px;
+  font-weight: 400;
   font-family: "Righteous", sans-serif;
   color: var(--color-text);
+  margin-bottom: 30px;
 }
 
 .btn {
-  height: 45px;
-  font-size: 12px;
+  max-width: 246px;
+  width: 100%;
+  min-height: 54px;
+  font-size: 18px;
   font-family: "Recursive", cursive;
   font-weight: 400;
   color: #d70900;
