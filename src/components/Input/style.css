@@ -1,0 +1,14 @@
+input {
+  width: 246px;
+  height: 43px;
+  padding: 0 11px;
+  color: #fb6b6b;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  color: #adadad;
+}

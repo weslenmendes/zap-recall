@@ -14,7 +14,7 @@ const initialState = {
   remembered: 0,
 };
 
-const Home = ({ changeScreen, deck }) => {
+const Home = ({ changeScreen, deck, changeGoal, goal }) => {
   const [icons, setIcons] = useState([]);
   const [score, setScore] = useState(initialState);
 
@@ -55,6 +55,8 @@ const Home = ({ changeScreen, deck }) => {
         cardsMade={icons.length}
         totalCards={deck.length}
         score={score}
+        goal={goal}
+        changeGoal={changeGoal}
         restart={changeScreen}
       />
     </React.Fragment>

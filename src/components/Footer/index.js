@@ -6,7 +6,20 @@ import "./style.css";
 import PartyEmoji from "../../assets/images/party.png";
 import SadEmoji from "../../assets/images/sad.png";
 
-const Footer = ({ icons, cardsMade = 0, totalCards = 4, restart, score }) => {
+const Footer = ({
+  icons,
+  cardsMade = 0,
+  totalCards = 4,
+  restart,
+  score,
+  changeGoal,
+  goal,
+}) => {
+  const handleClick = () => {
+    changeGoal(1);
+    restart("welcome");
+  };
+
   if (cardsMade === totalCards) {
     const content1 = (
       <React.Fragment>
@@ -33,7 +46,9 @@ const Footer = ({ icons, cardsMade = 0, totalCards = 4, restart, score }) => {
 
     return (
       <footer className="finished">
-        <div className="result">{score.forgot > 0 ? content2 : content1}</div>
+        <div className="result">
+          {score.forgot > 0 || score.remembered < goal ? content2 : content1}
+        </div>
         <p>
           {cardsMade}/{totalCards} CONCLUÍDOS{" "}
         </p>
@@ -45,7 +60,7 @@ const Footer = ({ icons, cardsMade = 0, totalCards = 4, restart, score }) => {
         <Button
           className="btn restart"
           content="REINICIAR RECALL"
-          onClick={() => restart("welcome")}
+          onClick={handleClick}
         />
       </footer>
     );
