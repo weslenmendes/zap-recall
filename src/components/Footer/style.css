@@ -62,6 +62,6 @@ footer .result .msg {
 footer.finished {
   padding-top: 23px;
   padding-bottom: 10px;
-  min-height: 163px;
-  max-height: 163px;
+  min-height: 260px;
+  max-height: 260px;
 }

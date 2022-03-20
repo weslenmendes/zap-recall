@@ -17,3 +17,15 @@
 .btn:hover {
   transform: scale(1.05);
 }
+
+.btn.restart {
+  min-height: initial;
+  height: 37px;
+  width: 167px;
+  font-size: 14px;
+  background-color: #fb6b6b;
+  color: #fff;
+  padding: 0;
+  margin-top: 27px;
+  border: none;
+}

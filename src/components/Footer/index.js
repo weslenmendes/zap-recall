@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./../Button";
 
 import "./style.css";
 
@@ -41,6 +42,11 @@ const Footer = ({ icons, cardsMade = 0, totalCards = 4, restart, score }) => {
             <img key={index} src={src} alt="" />
           ))}
         </div>
+        <Button
+          className="btn restart"
+          content="REINICIAR RECALL"
+          onClick={() => restart("welcome")}
+        />
       </footer>
     );
   }
