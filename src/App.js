@@ -11,7 +11,7 @@ import { deckReact } from "./data";
 function App() {
   const [screen, setScreen] = useState("welcome");
   const [deck, setDeck] = useState(deckReact);
-  const [goal, setGoal] = useState(0);
+  const [goal, setGoal] = useState("");
 
   const changeScreen = (screen) => {
     setScreen(screen);
