@@ -48,7 +48,11 @@ const Home = ({ changeScreen, deck }) => {
     <React.Fragment>
       <section className={sectionClass}>
         <Header />
-        <Cards deck={deck} changeIcons={addIcon} changeScore={changeScore} />
+        <Cards 
+          deck={deck} 
+          changeIcons={addIcon} 
+          changeScore={changeScore} 
+        />
       </section>
       <Footer
         icons={icons}

@@ -1,7 +1,9 @@
 import React from "react";
 
-import PartyEmoji from "../assets/party.png";
-import SadEmoji from "../assets/sad.png";
+import "./style.css";
+
+import PartyEmoji from "../../assets/party.png";
+import SadEmoji from "../../assets/sad.png";
 
 const Footer = ({ icons, cardsMade = 0, totalCards = 4, restart, score }) => {
   if (cardsMade === totalCards) {

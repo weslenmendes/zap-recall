@@ -12,6 +12,7 @@
 .header {
   margin-top: 20px;
   margin-bottom: 46px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,8 +24,8 @@
 }
 
 .header .title {
+  font-family: "Righteous", sans-serif;
   font-size: 36px;
   line-height: 44px;
-  font-family: "Righteous", sans-serif;
   color: #fff;
 }
