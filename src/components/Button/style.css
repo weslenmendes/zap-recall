@@ -31,9 +31,10 @@
 }
 
 .btn:disabled {
-  opacity: 0.6;
   pointer-events: none;
-  background-color: #fff;
+  background-color: #e8e8e8;
+  color: #c0c0c0;
+  border-color: transparent;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;

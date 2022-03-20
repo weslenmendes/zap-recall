@@ -17,7 +17,7 @@ const Footer = ({
   goal,
 }) => {
   const handleClick = () => {
-    changeGoal(0);
+    changeGoal("");
     changeScreen("welcome");
   };
 

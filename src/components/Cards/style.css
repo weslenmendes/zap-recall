@@ -92,17 +92,22 @@
 .back .options .btn {
   min-height: initial;
   height: 38px;
-  min-width: 85px;
+  margin-right: 5px;
+  min-width: 67px;
   width: 30%;
   font-size: 12px;
   color: #fff;
-  padding: 0px 10px;
+  padding: 0px 5px;
   margin-bottom: 6px;
   border: none;
 
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.back .options .btn:last-child {
+  margin-right: 0;
 }
 
 .card.responded {
@@ -122,4 +127,11 @@
 .remember {
   color: #2fbe34;
   text-decoration: line-through;
+}
+
+@media screen and (max-width: 333px) {
+  .back .options .btn {
+    min-width: 63px;
+    font-size: 10px;
+  }
 }
