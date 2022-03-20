@@ -10,24 +10,35 @@ import { deckReact } from "./data";
 
 function App() {
   const [screen, setScreen] = useState("welcome");
-  const [goal, setGoal] = useState(1);
-
-  const changeGoal = (value) => {
-    setGoal(value);
-  };
+  const [deck, setDeck] = useState(deckReact);
+  const [goal, setGoal] = useState(0);
 
   const changeScreen = (screen) => {
     setScreen(screen);
   };
 
+  const changeDeck = (deck) => {
+    setDeck(deck);
+  };
+
+  const changeGoal = (value) => {
+    setGoal(value);
+  };
+
   return screen === "welcome" ? (
-    <Welcome changeScreen={changeScreen} goal={goal} changeGoal={changeGoal} />
+    <Welcome
+      changeScreen={changeScreen}
+      changeDeck={changeDeck}
+      changeGoal={changeGoal}
+      goal={goal}
+      maxOfCards={deck.length}
+    />
   ) : (
     <Home
       changeScreen={changeScreen}
+      changeGoal={changeGoal}
       deck={deckReact}
       goal={goal}
-      changeGoal={changeGoal}
     />
   );
 }

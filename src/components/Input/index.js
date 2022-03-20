@@ -1,6 +1,6 @@
 import "./style.css";
 
-const Input = ({ changeGoal, goal, min = 1, max = 8 }) => {
+const Input = ({ changeGoal, goal, min, max }) => {
   return (
     <input
       type="number"

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Button } from "./../Button";
 
 import "./style.css";
@@ -8,16 +9,16 @@ import SadEmoji from "../../assets/images/sad.png";
 
 const Footer = ({
   icons,
-  cardsMade = 0,
-  totalCards = 4,
-  restart,
+  cardsMade,
+  totalCards,
+  changeScreen,
   score,
   changeGoal,
   goal,
 }) => {
   const handleClick = () => {
-    changeGoal(1);
-    restart("welcome");
+    changeGoal(0);
+    changeScreen("welcome");
   };
 
   if (cardsMade === totalCards) {

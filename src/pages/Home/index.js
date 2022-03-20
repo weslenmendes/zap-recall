@@ -57,7 +57,7 @@ const Home = ({ changeScreen, deck, changeGoal, goal }) => {
         score={score}
         goal={goal}
         changeGoal={changeGoal}
-        restart={changeScreen}
+        changeScreen={changeScreen}
       />
     </React.Fragment>
   );
