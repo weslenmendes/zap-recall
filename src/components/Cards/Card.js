@@ -61,12 +61,12 @@ const Card = ({ id, question, response, changeIcons, changeScore }) => {
         <p className={titleClass}>Pergunta {id}</p>
 
         {status.showResponse ? (
-          <div className="action-btn">
-            <img src={imageSrc} alt="" />
+          <div className="action-btn" draggable="false">
+            <img src={imageSrc} draggable="false" alt="" />
           </div>
         ) : (
-          <div className="action-btn" onClick={changeStatus}>
-            <img src={imageSrc} alt="" />
+          <div className="action-btn" draggable="false" onClick={changeStatus}>
+            <img src={imageSrc} draggable="false" alt="" />
           </div>
         )}
       </article>
@@ -79,7 +79,7 @@ const Card = ({ id, question, response, changeIcons, changeScore }) => {
         <section className="front">
           <p>{question}</p>
           <div onClick={() => setStatus({ ...status, showResponse: true })}>
-            <img src={RotateIcon} alt="" />
+            <img src={RotateIcon} draggable="false" alt="" />
           </div>
         </section>
       ) : (

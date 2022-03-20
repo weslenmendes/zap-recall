@@ -25,7 +25,7 @@ const Footer = ({
     const content1 = (
       <React.Fragment>
         <div>
-          <img src={PartyEmoji} alt="" />
+          <img src={PartyEmoji} draggable="false" alt="" />
           <p className="title">Parabéns</p>
         </div>
         <p className="msg">Você não esqueceu de nenhum flashcard!</p>
@@ -35,7 +35,7 @@ const Footer = ({
     const content2 = (
       <React.Fragment>
         <div>
-          <img src={SadEmoji} alt="" />
+          <img src={SadEmoji} draggable="false" alt="" />
           <p className="title">Putz...</p>
         </div>
         <p className="msg">
@@ -55,7 +55,7 @@ const Footer = ({
         </p>
         <div>
           {icons.map((src, index) => (
-            <img key={index} src={src} alt="" />
+            <img key={index} src={src} alt="" draggable="false" />
           ))}
         </div>
         <Button

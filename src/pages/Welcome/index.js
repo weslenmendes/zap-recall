@@ -9,7 +9,7 @@ const Welcome = ({ changeScreen, changeGoal, goal, maxOfCards }) => {
   return (
     <section className="welcome-page">
       <header>
-        <img src={Logo} alt="ZapRecall" />
+        <img src={Logo} draggable="false" alt="ZapRecall" />
         <h1 className="title">ZapRecall</h1>
         <Input changeGoal={changeGoal} goal={goal} max={maxOfCards} />
         <Button
