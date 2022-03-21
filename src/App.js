@@ -6,19 +6,31 @@ import "./styles/global.css";
 import { Welcome } from "./pages/Welcome";
 import { Home } from "./pages/Home";
 
-import { deckReact } from "./data";
+import { deckJS, deckLinux, deckReact } from "./data";
 
 function App() {
   const [screen, setScreen] = useState("welcome");
-  const [deck, setDeck] = useState(deckReact);
+  const [deck, setDeck] = useState({});
   const [goal, setGoal] = useState("");
 
   const changeScreen = (screen) => {
     setScreen(screen);
   };
 
-  const changeDeck = (deck) => {
-    setDeck(deck);
+  const changeDeck = (nameOfDeck) => {
+    switch (nameOfDeck) {
+      case "react":
+        setDeck(deckReact);
+        break;
+      case "javascript":
+        setDeck(deckJS);
+        break;
+      case "linux":
+        setDeck(deckLinux);
+        break;
+      default:
+        return;
+    }
   };
 
   const changeGoal = (value) => {
@@ -31,13 +43,14 @@ function App() {
       changeDeck={changeDeck}
       changeGoal={changeGoal}
       goal={goal}
+      deck={deck}
       maxOfCards={deck.length}
     />
   ) : (
     <Home
       changeScreen={changeScreen}
       changeGoal={changeGoal}
-      deck={deckReact}
+      deck={deck}
       goal={goal}
     />
   );
